@@ -28,6 +28,7 @@ Render Powermail Form
 					</f:for>
 
 					<f:form.hidden name="mail[form]" value="{form.uid}" class="powermail_form_uid" />
+					<input type="hidden" name="contentElementUid" value="{ttContentData.uid}">
 					<f:render partial="Misc/HoneyPod" arguments="{form:form}" />
 				</f:form>
 			</div>

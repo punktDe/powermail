@@ -23,6 +23,10 @@ function PowermailForm($) {
 		uploadValidationListener();
 	};
 
+	this.externInitalize = function() {
+		addAjaxFormSubmitListener();
+	};
+
 	/**
 	 * Add tabs listener
 	 *
@@ -193,7 +197,7 @@ function PowermailForm($) {
 				redirectUri = $this.data('powermail-ajax-uri');
 			}
 			var formUid = $this.data('powermail-form');
-
+			
 			if (!regularSubmitOnAjax) {
 				$.ajax({
 					type: 'POST',
@@ -232,6 +236,7 @@ function PowermailForm($) {
 								$this.submit();
 							}
 							regularSubmitOnAjax = true;
+
 						}
 					}
 				});
@@ -486,6 +491,10 @@ function PowermailForm($) {
 
 jQuery(document).ready(function($) {
 	'use strict';
-	var PowermailForm = new window.PowermailForm($);
-	PowermailForm.initialize();
+	window.PowermailFormInstance = new window.PowermailForm($);
+	window.PowermailFormInstance.initialize();
 });
+
+window.initExtern = function() {
+	window.PowermailFormInstance.externInitalize();
+};
