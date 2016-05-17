@@ -1,4 +1,5 @@
 {namespace vh=In2code\Powermail\ViewHelpers}
+{namespace ptx=PunktDe\PtWagBase\ViewHelper}
 <f:layout name="Default" />
 
 Render Powermail Form
@@ -29,6 +30,8 @@ Render Powermail Form
 
 					<f:form.hidden name="mail[form]" value="{form.uid}" class="powermail_form_uid" />
 					<input type="hidden" name="contentElementUid" value="{ttContentData.uid}">
+					<input type="hidden" name="address" value="{ptx:getPost(name:'address')}">
+
 					<f:render partial="Misc/HoneyPod" arguments="{form:form}" />
 				</f:form>
 			</div>

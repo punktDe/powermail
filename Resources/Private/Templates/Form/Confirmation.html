@@ -1,4 +1,5 @@
 {namespace vh=In2code\Powermail\ViewHelpers}
+{namespace ptx=PunktDe\PtWagBase\ViewHelper}
 <f:layout name="Default" />
 
 Show Confirmation Page
@@ -75,4 +76,5 @@ Show Confirmation Page
 
 	<f:form.hidden name="mail[form]" value="{mail.form.uid}" class="powermail_form_uid" />
 	<input type="hidden" name="contentElementUid" value="{ttContentData.uid}">
+	<input type="hidden" name="address" value="{ptx:getPost(name:'address')}">
 </f:section>
